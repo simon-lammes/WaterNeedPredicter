@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText weightEditText;
     private Button dayOfBirthButton;
     private Button createPersonButton;
+    private Button showAllPeopleButton;
     private int yearBorn;
     private int monthBorn;
     private int dayOfMonthBorn;
@@ -32,6 +33,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         dayOfBirthButton.setOnClickListener(this);
         createPersonButton = findViewById(R.id.main_create_person_button);
         createPersonButton.setOnClickListener(this);
+        showAllPeopleButton = findViewById(R.id.main_show_all_people_button);
+        showAllPeopleButton.setOnClickListener(this);
     }
 
     @Override
@@ -43,7 +46,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.main_day_of_birth_button:
                 pickDayOfBith();
                 break;
+            case R.id.main_show_all_people_button:
+                showAllPeople();
+                break;
         }
+    }
+
+    private void showAllPeople() {
+        Intent intent = new Intent(this, OverviewActivity.class);
+        startActivity(intent);
     }
 
     private void pickDayOfBith() {
@@ -79,7 +90,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
         this.yearBorn = year;
-        this.monthBorn = month;
+        // January is represented as 0 in android. I don't know why.
+        this.monthBorn = month + 1;
         this.dayOfMonthBorn = dayOfMonth;
     }
 
