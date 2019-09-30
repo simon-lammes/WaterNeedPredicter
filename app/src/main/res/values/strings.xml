@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">WaterNeedPredicter</string>
+    <string name="age">Age</string>
+    <string name="create_person">Create person</string>
+    <string name="back">Back</string>
+    <string name="predicted_water_need">Predicted water need</string>
+    <string name="day_of_birth">Day of birth</string>
+    <string name="pick">Pick</string>
+    <string name="weight">Weight</string>
+    <string name="input_name_of_person">Name of Person</string>
 </resources>
