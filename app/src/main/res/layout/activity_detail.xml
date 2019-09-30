@@ -4,45 +4,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:stretchColumns="1"
-    tools:context=".MainActivity">
+    tools:context=".DetailActivity"
+    android:stretchColumns="1">
 
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent" >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:text="@string/input_name_of_person" />
 
-        <EditText
-            android:id="@+id/main_name_edit_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:autofillHints=""/>
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
         <TextView
+            android:id="@+id/detail_name_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/weight" />
+            android:gravity="end"
+            tools:text="Debora Köhler" />
 
-        <EditText
-            android:id="@+id/main_weight_edit_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="numberSigned"
-            android:autofillHints=""/>
     </TableRow>
 
     <TableRow
@@ -52,15 +32,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/day_of_birth"
-            android:layout_weight="1"/>
+            android:text="@string/age" />
 
-        <Button
-            android:id="@+id/main_day_of_birth_button"
+        <TextView
+            android:id="@+id/detail_age_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/pick" />
+            android:gravity="end"
+            tools:text="23" />
 
     </TableRow>
 
@@ -68,12 +47,28 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/predicted_water_need" />
+
+        <TextView
+            android:id="@+id/detail_predicted_water_need_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="4200"
+            android:gravity="end"/>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
         <Button
-            android:id="@+id/main_create_person_button"
+            android:id="@+id/detail_back_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/create_person" />
+            android:text="@string/back" />
     </TableRow>
-
 </TableLayout>
