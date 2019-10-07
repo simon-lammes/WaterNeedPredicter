@@ -10,4 +10,8 @@
     <string name="input_name_of_person">Name of Person</string>
     <string name="show_all_people">Overview</string>
     <string name="remove">Remove</string>
+    <string-array name="weight_units">
+        <item>Kilograms</item>
+        <item>Grams</item>
+    </string-array>
 </resources>

@@ -5,9 +5,11 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,6 +21,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button dayOfBirthButton;
     private Button createPersonButton;
     private Button showAllPeopleButton;
+    private Spinner weightUnitSpinner;
     private int yearBorn;
     private int monthBorn;
     private int dayOfMonthBorn;
@@ -35,6 +38,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         createPersonButton.setOnClickListener(this);
         showAllPeopleButton = findViewById(R.id.main_show_all_people_button);
         showAllPeopleButton.setOnClickListener(this);
+        weightUnitSpinner = findViewById(R.id.main_weight_unit_spinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.weight_units, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        weightUnitSpinner.setAdapter(adapter);
+        weightUnitSpinner.setSelection(0);
     }
 
     @Override
@@ -82,7 +91,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
         String name = nameEditText.getText().toString().trim();
-        int weightInGrams = Integer.parseInt(weightEditText.getText().toString());
+        // We do not yet know whether the user choose kg or g as weight unit!
+        int weightInput = Integer.parseInt(weightEditText.getText().toString());
+        boolean isWeightUnitInKg = weightUnitSpinner.getSelectedItemPosition() == 0;
+        // If the weight unit is already in grams we have to do nothing, otherwise we have to multiply the kg by one thousand.
+        int weightInGrams = isWeightUnitInKg ? weightInput * 1_000 : weightInput;
         HumanPerson createdPerson = new HumanPerson(name, weightInGrams, yearBorn, monthBorn, dayOfMonthBorn);
         new SaveHumanPersonTask().execute(createdPerson);
     }
@@ -93,7 +106,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // January is represented as 0 in android. I don't know why.
         this.monthBorn = month + 1;
         this.dayOfMonthBorn = dayOfMonth;
-
         dayOfBirthButton.setText(dayOfMonthBorn + "." + monthBorn + "." + yearBorn);
     }
 

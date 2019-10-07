@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:stretchColumns="1"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:layout_margin="5pt">
 
     <TableRow
         android:layout_width="match_parent"
@@ -43,6 +44,11 @@
             android:ems="10"
             android:inputType="numberSigned"
             android:autofillHints=""/>
+
+        <Spinner
+            android:id="@+id/main_weight_unit_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
     </TableRow>
 
     <TableRow
