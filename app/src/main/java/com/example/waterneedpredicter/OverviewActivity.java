@@ -24,27 +24,35 @@ public class OverviewActivity extends AppCompatActivity {
         backButton.setOnClickListener(event -> finish());
         humanPeopleRecyclerView = findViewById(R.id.overview_human_people_recycler_view);
         humanPeopleRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new HumanPersonRecyclerAdapter();
+        adapter = new HumanPersonRecyclerAdapter(MyRoomDatabase.getInstance(this).humanPersonDao());
         humanPeopleRecyclerView.setAdapter(adapter);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        new LoadHumanPeopleTask().execute();
+        new LoadHumanPeopleTask(MyRoomDatabase.getInstance(this).humanPersonDao(), adapter).execute();
     }
 
-    class LoadHumanPeopleTask extends AsyncTask<Void, Void, List<HumanPerson>> {
+    static class LoadHumanPeopleTask extends AsyncTask<Void, Void, List<HumanPerson>> {
+
+        private HumanPersonDao humanPersonDao;
+        private HumanPersonRecyclerAdapter humanPersonRecyclerAdapter;
+
+        LoadHumanPeopleTask(HumanPersonDao humanPersonDao, HumanPersonRecyclerAdapter humanPersonRecyclerAdapter) {
+            this.humanPersonDao = humanPersonDao;
+            this.humanPersonRecyclerAdapter = humanPersonRecyclerAdapter;
+        }
 
         @Override
         protected List<HumanPerson> doInBackground(Void... voids) {
-            return MyRoomDatabase.getInstance(OverviewActivity.this).humanPersonDao().getAll();
+            return humanPersonDao.getAll();
         }
 
         @Override
         protected void onPostExecute(List<HumanPerson> humanPeople) {
             super.onPostExecute(humanPeople);
-            adapter.setHumanPeople(humanPeople);
+            humanPersonRecyclerAdapter.setHumanPeople(humanPeople);
         }
     }
 }

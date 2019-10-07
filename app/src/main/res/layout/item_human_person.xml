@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:stretchColumns="1">
+    android:stretchColumns="1"
+    android:layout_margin="10pt">
 
     <TableRow
         android:layout_width="match_parent"
@@ -61,5 +62,18 @@
             android:layout_weight="1"
             android:textAlignment="textEnd"
             tools:text="1999-01-05" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <Button
+            android:id="@+id/human_person_remove_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/remove"
+            android:layout_weight="1"/>
     </TableRow>
 </TableLayout>
