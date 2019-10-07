@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 createHumanPerson();
                 break;
             case R.id.main_day_of_birth_button:
-                pickDayOfBith();
+                pickDayOfBirth();
                 break;
             case R.id.main_show_all_people_button:
                 showAllPeople();
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startActivity(intent);
     }
 
-    private void pickDayOfBith() {
+    private void pickDayOfBirth() {
         // The picker dialog should be set to current day as a default.
         Calendar calendar = Calendar.getInstance();
         int day = calendar.get(Calendar.DAY_OF_MONTH);
