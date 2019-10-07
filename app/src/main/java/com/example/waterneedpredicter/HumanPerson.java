@@ -3,6 +3,7 @@ package com.example.waterneedpredicter;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.Calendar;
@@ -89,5 +90,14 @@ public class HumanPerson {
 
     int predictWaterNeedInMl() {
         return 4_200;
+    }
+
+    String getFormattedWeightInKg() {
+        BigDecimal weightInKg = new BigDecimal(this.weightInGrams).divide(new BigDecimal(1000));
+        return weightInKg.toString() + " Kg";
+    }
+
+    String getBirthdayString() {
+        return yearBorn + "-" + monthBorn + "-" + dayOfMonthBorn;
     }
 }

@@ -37,8 +37,8 @@ public class HumanPersonRecyclerAdapter extends RecyclerView.Adapter<HumanPerson
         Button removeButton = holder.itemView.findViewById(R.id.human_person_remove_button);
         HumanPerson humanPerson = humanPeople.get(position);
         nameTextView.setText(humanPerson.getName());
-        weightTextView.setText(String.valueOf(humanPerson.getWeightInGrams()));
-        dayOfBirthTextView.setText(String.valueOf(humanPerson.calculateTimePassedSinceBirthdayInMonths()));
+        weightTextView.setText(humanPerson.getFormattedWeightInKg());
+        dayOfBirthTextView.setText(String.valueOf(humanPerson.getBirthdayString()));
         removeButton.setOnClickListener(event ->
                 new DeletePersonTask(humanPersonDao, this).execute(humanPerson));
     }

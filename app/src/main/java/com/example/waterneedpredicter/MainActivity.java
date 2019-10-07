@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // January is represented as 0 in android. I don't know why.
         this.monthBorn = month + 1;
         this.dayOfMonthBorn = dayOfMonth;
-        dayOfBirthButton.setText(dayOfMonthBorn + "." + monthBorn + "." + yearBorn);
+        dayOfBirthButton.setText(yearBorn + "-" + monthBorn + "-" + dayOfMonthBorn);
     }
 
     class SaveHumanPersonTask extends AsyncTask<HumanPerson, Void, Long> {
