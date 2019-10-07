@@ -77,7 +77,12 @@ public class HumanPerson {
     int calculateTimePassedSinceBirthdayInMonths() {
         Calendar currentTime = Calendar.getInstance();
         LocalDate localDateOfBirthday = LocalDate.of(yearBorn, monthBorn, dayOfMonthBorn);
-        LocalDate currentLocalDate = LocalDate.of(currentTime.get(Calendar.YEAR), currentTime.get(Calendar.MONTH), currentTime.get(Calendar.DAY_OF_MONTH));
+        LocalDate currentLocalDate = LocalDate.of(
+                currentTime.get(Calendar.YEAR),
+                // Somehow the Calender class counts months in a weird way: January is 0, February is 1. Here we correct that by incrementing.
+                currentTime.get(Calendar.MONTH) + 1,
+                currentTime.get(Calendar.DAY_OF_MONTH)
+        );
         Period timeGap = Period.between(localDateOfBirthday, currentLocalDate);
         return timeGap.getYears() * 12 + timeGap.getMonths();
     }
