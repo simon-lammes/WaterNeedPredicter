@@ -14,4 +14,14 @@
         <item>Kilograms</item>
         <item>Grams</item>
     </string-array>
+    <string name="info">Info</string>
+    <string name="header">Info</string>
+    <string name="subheader1">Which formula is used?</string>
+    <string name="formula">Add table!</string>
+    <string name="subheader2">Who has invented the formula?</string>
+    <string name="inventor"> Although many fonts confirm the accuracy of the used formula
+                            (see http://bit.ly/waterneedformula), there are no indicators about who
+                            actually invented it.</string>
+    <string name="subheader3">subheader3</string>
+    <string name="spectrum"> spectrum</string>
 </resources>

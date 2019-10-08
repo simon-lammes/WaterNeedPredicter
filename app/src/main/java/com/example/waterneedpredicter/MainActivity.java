@@ -25,6 +25,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private int yearBorn;
     private int monthBorn;
     private int dayOfMonthBorn;
+    private Button infoButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +46,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         weightUnitSpinner.setAdapter(adapter);
         weightUnitSpinner.setSelection(0);
+        infoButton = findViewById(R.id.main_info_button);
+        infoButton.setOnClickListener(this);
     }
 
     @Override
@@ -58,7 +62,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.main_show_all_people_button:
                 showAllPeople();
                 break;
+            case R.id.main_info_button:
+                goToInfo();
+                break;
         }
+    }
+
+    private void goToInfo() {
+        Intent intent = new Intent(this, InfoActivity.class);
+        startActivity(intent);
     }
 
     private void showAllPeople() {

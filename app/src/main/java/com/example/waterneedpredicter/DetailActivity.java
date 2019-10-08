@@ -18,7 +18,7 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
         findAllViews();
-        this.backButton.setOnClickListener(event -> finish());
+        this.backButton.setOnClickListener(view -> finish());
     }
 
     @Override
