@@ -15,13 +15,17 @@
         <item>Grams</item>
     </string-array>
     <string name="info">Info</string>
-    <string name="header">Info</string>
     <string name="subheader1">Which formula is used?</string>
-    <string name="formula">Add table!</string>
+    <string name="formula">The following table of recommended fluid intake per kilogram of body weight and day is used:</string>
     <string name="subheader2">Who has invented the formula?</string>
     <string name="inventor"> Although many fonts confirm the accuracy of the used formula
                             (see http://bit.ly/waterneedformula), there are no indicators about who
                             actually invented it.</string>
-    <string name="subheader3">subheader3</string>
-    <string name="spectrum"> spectrum</string>
+    <string name="subheader3">In which spectrum can the input values be?</string>
+    <string name="spectrum">The input values could theoretically be anything, as long as they are positive numbers.
+                            In order for the app to work properly, we have set a limit: from 0 to 500 kilograms. </string>
+    <string name="subheader4">What does the model assert? / How can the result be interpreted?</string>
+    <string name="result">  You can use this formula to be informed about your personal
+                            recommended water supply. Please note the results predict the general amount
+                            of liquid your body daily needs, and that is consists of water and food!</string>
 </resources>
