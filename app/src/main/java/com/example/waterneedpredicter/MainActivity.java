@@ -4,6 +4,8 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -11,6 +13,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Calendar;
@@ -20,12 +23,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText weightEditText;
     private Button dayOfBirthButton;
     private Button createPersonButton;
-    private Button showAllPeopleButton;
     private Spinner weightUnitSpinner;
     private int yearBorn;
     private int monthBorn;
     private int dayOfMonthBorn;
-    private Button infoButton;
 
 
     @Override
@@ -38,16 +39,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         dayOfBirthButton.setOnClickListener(this);
         createPersonButton = findViewById(R.id.main_create_person_button);
         createPersonButton.setOnClickListener(this);
-        showAllPeopleButton = findViewById(R.id.main_show_all_people_button);
-        showAllPeopleButton.setOnClickListener(this);
         weightUnitSpinner = findViewById(R.id.main_weight_unit_spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.weight_units, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         weightUnitSpinner.setAdapter(adapter);
         weightUnitSpinner.setSelection(0);
-        infoButton = findViewById(R.id.main_info_button);
-        infoButton.setOnClickListener(this);
     }
 
     @Override
@@ -58,12 +55,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.main_day_of_birth_button:
                 pickDayOfBirth();
-                break;
-            case R.id.main_show_all_people_button:
-                showAllPeople();
-                break;
-            case R.id.main_info_button:
-                goToInfo();
                 break;
         }
     }
@@ -119,6 +110,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.monthBorn = month + 1;
         this.dayOfMonthBorn = dayOfMonth;
         dayOfBirthButton.setText(yearBorn + "-" + monthBorn + "-" + dayOfMonthBorn);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.go_to_info:
+                goToInfo();
+                break;
+            case R.id.go_to_overview:
+                showAllPeople();
+                break;
+        }
+        return true;
     }
 
     class SaveHumanPersonTask extends AsyncTask<HumanPerson, Void, Long> {

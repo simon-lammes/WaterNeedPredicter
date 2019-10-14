@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/go_to_overview"
+        android:title="@string/show_all_people"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_list_black_24dp"/>
+    <item
+        android:id="@+id/go_to_info"
+        android:title="@string/info"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_help_black_24dp"/>
+</menu>
