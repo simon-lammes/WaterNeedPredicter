@@ -35,10 +35,12 @@ public class HumanPersonRecyclerAdapter extends RecyclerView.Adapter<HumanPerson
         TextView weightTextView = holder.itemView.findViewById(R.id.human_person_weight_view);
         TextView dayOfBirthTextView = holder.itemView.findViewById(R.id.human_person_day_of_birth_view);
         Button removeButton = holder.itemView.findViewById(R.id.human_person_remove_button);
+        TextView predictedWaterNeed = holder.itemView.findViewById(R.id.human_person_predicted_water_need_text_view);
         HumanPerson humanPerson = humanPeople.get(position);
         nameTextView.setText(humanPerson.getName());
         weightTextView.setText(humanPerson.getFormattedWeightInKg());
         dayOfBirthTextView.setText(String.valueOf(humanPerson.getBirthdayString()));
+        predictedWaterNeed.setText(String.valueOf(humanPerson.predictWaterNeedInMl()));
         removeButton.setOnClickListener(event ->
                 new DeletePersonTask(humanPersonDao, this).execute(humanPerson));
     }

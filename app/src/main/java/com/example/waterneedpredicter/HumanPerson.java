@@ -88,8 +88,34 @@ public class HumanPerson {
         return timeGap.getYears() * 12 + timeGap.getMonths();
     }
 
-    int predictWaterNeedInMl() {
-        return 4_200;
+    double predictWaterNeedInMl() {
+        int months = calculateTimePassedSinceBirthdayInMonths();
+        double kg = (double) getWeightInGrams() / 1000;
+        if (months <= 4) {
+            return 130 * kg;
+        }
+        if (months <= 12) {
+            return 110 * kg;
+        }
+        if (months <= 12 * 4) {
+            return 95 * kg;
+        }
+        if (months <= 12 * 7) {
+            return 75 * kg;
+        }
+        if (months <= 12 * 10) {
+            return 60 * kg;
+        }
+        if (months <= 12 * 13) {
+            return 50 * kg;
+        }
+        if (months <= 12 * 19) {
+            return 40 * kg;
+        }
+        if (months <= 12 * 51) {
+            return 35 * kg;
+        }
+        return 30 * kg;
     }
 
     String getFormattedWeightInKg() {

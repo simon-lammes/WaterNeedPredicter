@@ -69,11 +69,31 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/predicted_water_need"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/human_person_predicted_water_need_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="2500 ml"
+            android:layout_weight="1"
+            android:textAlignment="textEnd"/>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
         <Button
             android:id="@+id/human_person_remove_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/remove"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:text="@string/remove" />
     </TableRow>
 </TableLayout>
