@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".InfoActivity">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".InfoActivity"
+    android:layout_margin="10pt">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <!-- Title -->
+
     <TextView
         android:id="@+id/info_header_textView"
         style="@style/TextAppearance.AppCompat.Title"
@@ -18,7 +26,7 @@
     <!-- Subheader -->
     <TextView
         android:id="@+id/info_subheader1_textView"
-        style="@style/TextAppearance.AppCompat.Caption"
+        style="@style/myCaptionStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -28,13 +36,21 @@
     <!-- Text -->
     <TextView
         android:id="@+id/info_help1_textView"
+        style="@style/myTextStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/formula" />
 
+    <ImageView
+        android:id="@+id/info_table_imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/desc"
+        app:srcCompat="@drawable/wntable" />
+
     <TextView
         android:id="@+id/info_subheader2_textView"
-        style="@style/TextAppearance.AppCompat.Caption"
+        style="@style/myCaptionStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -43,13 +59,14 @@
 
     <TextView
         android:id="@+id/info_help2_textView"
+        style="@style/myTextStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/inventor" />
 
     <TextView
         android:id="@+id/info_subheader3_textView"
-        style="@style/TextAppearance.AppCompat.Caption"
+        style="@style/myCaptionStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -58,29 +75,34 @@
 
     <TextView
         android:id="@+id/info_help3_textView"
+        style="@style/myTextStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/spectrum" />
 
     <TextView
         android:id="@+id/info_subheader4_textView"
-        style="@style/TextAppearance.AppCompat.Caption"
+        style="@style/myCaptionStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:gravity="start"
         android:text="@string/subheader4" />
 
+
     <TextView
         android:id="@+id/info_help4_textView"
+        style="@style/myTextStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         android:text="@string/result" />
-
 
     <Button
         android:id="@+id/info_back_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/back" />
-</LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
