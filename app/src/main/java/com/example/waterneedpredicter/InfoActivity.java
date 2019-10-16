@@ -26,8 +26,10 @@ public class InfoActivity extends AppCompatActivity {
         actionBar = getSupportActionBar();
 
         backButton.setOnClickListener(view -> finish());
-        // with this method the hyperlink in the string 'info_help2_textView' works
+        // this method activates a hyperlink in the textView "info_help2"
         link.setMovementMethod(LinkMovementMethod.getInstance());
+        /*  this method is responsible for the functionality
+         *  of the back arrow on the action bar */
         actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
