@@ -75,7 +75,7 @@ public class HumanPerson {
         this.dayOfMonthBorn = dayOfMonthBorn;
     }
 
-    int calculateTimePassedSinceBirthdayInMonths() {
+    Period calculateTimePassedSinceBirthday() {
         Calendar currentTime = Calendar.getInstance();
         LocalDate localDateOfBirthday = LocalDate.of(yearBorn, monthBorn, dayOfMonthBorn);
         LocalDate currentLocalDate = LocalDate.of(
@@ -84,8 +84,20 @@ public class HumanPerson {
                 currentTime.get(Calendar.MONTH) + 1,
                 currentTime.get(Calendar.DAY_OF_MONTH)
         );
-        Period timeGap = Period.between(localDateOfBirthday, currentLocalDate);
+        return Period.between(localDateOfBirthday, currentLocalDate);
+    }
+
+    int calculateTimePassedSinceBirthdayInMonths() {
+        Period timeGap = calculateTimePassedSinceBirthday();
         return timeGap.getYears() * 12 + timeGap.getMonths();
+    }
+
+    String getAgeRepresentation() {
+        Period timeGap = calculateTimePassedSinceBirthday();
+        if (timeGap.getYears() == 0) {
+            return timeGap.getMonths() + " months";
+        }
+        return timeGap.getYears() + " years and " + timeGap.getMonths() + " months";
     }
 
     double predictWaterNeedInMl() {
