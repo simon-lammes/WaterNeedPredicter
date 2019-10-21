@@ -48,7 +48,7 @@ public class DetailActivity extends AppCompatActivity {
             super.onPostExecute(humanPerson);
             nameTextView.setText(humanPerson.getName());
             ageTextView.setText(humanPerson.getAgeRepresentation());
-            predictedWaterNeedTextView.setText("" + humanPerson.predictWaterNeedInMl());
+            predictedWaterNeedTextView.setText("" + humanPerson.predictWaterNeedInMl() + " ml");
         }
     }
 }

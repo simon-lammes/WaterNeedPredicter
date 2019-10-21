@@ -1,5 +1,6 @@
 package com.example.waterneedpredicter;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,12 +38,18 @@ public class HumanPersonRecyclerAdapter extends RecyclerView.Adapter<HumanPerson
         Button removeButton = holder.itemView.findViewById(R.id.human_person_remove_button);
         TextView predictedWaterNeed = holder.itemView.findViewById(R.id.human_person_predicted_water_need_text_view);
         HumanPerson humanPerson = humanPeople.get(position);
+        Button detailButton = holder.itemView.findViewById(R.id.human_person_detail_button);
         nameTextView.setText(humanPerson.getName());
         weightTextView.setText(humanPerson.getFormattedWeightInKg());
         dayOfBirthTextView.setText(String.valueOf(humanPerson.getBirthdayString()));
         predictedWaterNeed.setText(String.valueOf(humanPerson.predictWaterNeedInMl()));
         removeButton.setOnClickListener(event ->
                 new DeletePersonTask(humanPersonDao, this).execute(humanPerson));
+        detailButton.setOnClickListener(event -> {
+            Intent intent = new Intent(holder.itemView.getContext(), DetailActivity.class);
+            intent.putExtra("id", humanPerson.getId());
+            holder.itemView.getContext().startActivity(intent);
+        });
     }
 
     @Override

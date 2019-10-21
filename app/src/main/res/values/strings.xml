@@ -11,8 +11,8 @@
     <string name="show_all_people">Overview</string>
     <string name="remove">Remove</string>
     <string-array name="weight_units">
-        <item>Kilograms</item>
-        <item>Grams</item>
+        <item>kg</item>
+        <item>g</item>
     </string-array>
     <string name="info">Info</string>
     <string name="subheader1">Which formula is used?</string>
@@ -28,4 +28,5 @@
                             recommended water supply. Please note: the results predict a general amount
         of <i>liquid</i> your body daily needs, and that consists of <b>water and food!</b></string>
     <string name="desc">Water need table</string>
+    <string name="detail">Detail</string>
 </resources>
