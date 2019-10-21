@@ -3,10 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="5pt"
     android:orientation="vertical"
     android:stretchColumns="1"
-    tools:context=".MainActivity"
-    android:layout_margin="5pt">
+    tools:context=".MainActivity">
 
     <TableRow
         android:layout_width="match_parent"
@@ -23,9 +23,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:autofillHints=""
             android:ems="10"
-            android:inputType="textPersonName"
-            android:autofillHints=""/>
+            android:inputType="textPersonName" />
     </TableRow>
 
     <TableRow
@@ -41,9 +41,9 @@
             android:id="@+id/main_weight_edit_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:autofillHints=""
             android:ems="10"
-            android:inputType="numberSigned"
-            android:autofillHints=""/>
+            android:inputType="numberSigned" />
 
         <Spinner
             android:id="@+id/main_weight_unit_spinner"
@@ -53,13 +53,13 @@
 
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/day_of_birth"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:text="@string/day_of_birth" />
 
         <Button
             android:id="@+id/main_day_of_birth_button"
@@ -72,7 +72,27 @@
 
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
+
+        <CheckBox
+            android:id="@+id/main_pregnant_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/pregnant" />
+
+        <CheckBox
+            android:id="@+id/main_breastfeeding_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/breastfeeding" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <Button
             android:id="@+id/main_create_person_button"
@@ -81,10 +101,6 @@
             android:layout_weight="1"
             android:text="@string/create_person" />
     </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 
     <TableRow
         android:layout_width="match_parent"

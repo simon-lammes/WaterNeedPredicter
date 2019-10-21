@@ -4,6 +4,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.Calendar;
@@ -18,13 +19,17 @@ public class HumanPerson {
     private int yearBorn;
     private int monthBorn;
     private int dayOfMonthBorn;
+    private boolean isPregnant;
+    private boolean isBreastfeeding;
 
-    HumanPerson(String name, int weightInGrams, int yearBorn, int monthBorn, int dayOfMonthBorn) {
+    HumanPerson(String name, int weightInGrams, int yearBorn, int monthBorn, int dayOfMonthBorn, boolean isPregnant, boolean isBreastfeeding) {
         this.name = name;
         this.weightInGrams = weightInGrams;
         this.yearBorn = yearBorn;
         this.monthBorn = monthBorn;
         this.dayOfMonthBorn = dayOfMonthBorn;
+        this.isPregnant = isPregnant;
+        this.isBreastfeeding = isBreastfeeding;
     }
 
     int getId() {
@@ -75,7 +80,23 @@ public class HumanPerson {
         this.dayOfMonthBorn = dayOfMonthBorn;
     }
 
-    Period calculateTimePassedSinceBirthday() {
+    boolean isPregnant() {
+        return isPregnant;
+    }
+
+    public void setPregnant(boolean pregnant) {
+        isPregnant = pregnant;
+    }
+
+    boolean isBreastfeeding() {
+        return isBreastfeeding;
+    }
+
+    public void setBreastfeeding(boolean breastfeeding) {
+        isBreastfeeding = breastfeeding;
+    }
+
+    private Period calculateTimePassedSinceBirthday() {
         Calendar currentTime = Calendar.getInstance();
         LocalDate localDateOfBirthday = LocalDate.of(yearBorn, monthBorn, dayOfMonthBorn);
         LocalDate currentLocalDate = LocalDate.of(
@@ -87,7 +108,7 @@ public class HumanPerson {
         return Period.between(localDateOfBirthday, currentLocalDate);
     }
 
-    int calculateTimePassedSinceBirthdayInMonths() {
+    private int calculateTimePassedSinceBirthdayInMonths() {
         Period timeGap = calculateTimePassedSinceBirthday();
         return timeGap.getYears() * 12 + timeGap.getMonths();
     }
@@ -103,6 +124,14 @@ public class HumanPerson {
     double predictWaterNeedInMl() {
         int months = calculateTimePassedSinceBirthdayInMonths();
         double kg = (double) getWeightInGrams() / 1000;
+        // If a woman is pregnant or breastfeeding, her age is ignored.
+        if (isBreastfeeding) {
+            return 45 * kg;
+        }
+        if (isPregnant) {
+            return 35 * kg;
+        }
+        // If a person is not pregnant or breastfeeding, his age determines the water need.
         if (months <= 4) {
             return 130 * kg;
         }
@@ -131,7 +160,7 @@ public class HumanPerson {
     }
 
     String getFormattedWeightInKg() {
-        BigDecimal weightInKg = new BigDecimal(this.weightInGrams).divide(new BigDecimal(1000));
+        BigDecimal weightInKg = new BigDecimal(this.weightInGrams).divide(new BigDecimal(1000), RoundingMode.HALF_UP);
         return weightInKg.toString() + " Kg";
     }
 

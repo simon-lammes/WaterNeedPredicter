@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -24,6 +25,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button dayOfBirthButton;
     private Button createPersonButton;
     private Spinner weightUnitSpinner;
+    private CheckBox pregnantCheckBox;
+    private CheckBox breastfeedingCheckBox;
     private int yearBorn;
     private int monthBorn;
     private int dayOfMonthBorn;
@@ -33,18 +36,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        nameEditText = findViewById(R.id.main_name_edit_text);
-        weightEditText = findViewById(R.id.main_weight_edit_text);
-        dayOfBirthButton = findViewById(R.id.main_day_of_birth_button);
+        findViews();
         dayOfBirthButton.setOnClickListener(this);
-        createPersonButton = findViewById(R.id.main_create_person_button);
         createPersonButton.setOnClickListener(this);
-        weightUnitSpinner = findViewById(R.id.main_weight_unit_spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.weight_units, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         weightUnitSpinner.setAdapter(adapter);
         weightUnitSpinner.setSelection(0);
+    }
+
+    private void findViews() {
+        nameEditText = findViewById(R.id.main_name_edit_text);
+        weightEditText = findViewById(R.id.main_weight_edit_text);
+        dayOfBirthButton = findViewById(R.id.main_day_of_birth_button);
+        createPersonButton = findViewById(R.id.main_create_person_button);
+        weightUnitSpinner = findViewById(R.id.main_weight_unit_spinner);
+        pregnantCheckBox = findViewById(R.id.main_pregnant_checkbox);
+        breastfeedingCheckBox = findViewById(R.id.main_breastfeeding_checkbox);
     }
 
     @Override
@@ -99,7 +108,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         boolean isWeightUnitInKg = weightUnitSpinner.getSelectedItemPosition() == 0;
         // If the weight unit is already in grams we have to do nothing, otherwise we have to multiply the kg by one thousand.
         int weightInGrams = isWeightUnitInKg ? weightInput * 1_000 : weightInput;
-        HumanPerson createdPerson = new HumanPerson(name, weightInGrams, yearBorn, monthBorn, dayOfMonthBorn);
+        boolean isPregnant = pregnantCheckBox.isChecked();
+        boolean isBreastfeeding = pregnantCheckBox.isChecked();
+        HumanPerson createdPerson = new HumanPerson(name, weightInGrams, yearBorn, monthBorn, dayOfMonthBorn, isPregnant, isBreastfeeding);
         new SaveHumanPersonTask().execute(createdPerson);
     }
 

@@ -28,4 +28,6 @@
                             recommended water supply. Please note: the results predict a general amount
         of <i>liquid</i> your body daily needs, and that consists of <b>water and food!</b></string>
     <string name="desc">Water need table</string>
+    <string name="pregnant">Pregnant</string>
+    <string name="breastfeeding">Breastfeeding</string>
 </resources>
