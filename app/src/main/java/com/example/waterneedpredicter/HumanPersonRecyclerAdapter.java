@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -39,6 +40,8 @@ public class HumanPersonRecyclerAdapter extends RecyclerView.Adapter<HumanPerson
         TextView predictedWaterNeed = holder.itemView.findViewById(R.id.human_person_predicted_water_need_text_view);
         HumanPerson humanPerson = humanPeople.get(position);
         Button detailButton = holder.itemView.findViewById(R.id.human_person_detail_button);
+        CheckBox pregnantCheckBox = holder.itemView.findViewById(R.id.human_person_pregnant_check_box);
+        CheckBox breastfeedingCheckBox = holder.itemView.findViewById(R.id.human_person_breastfeeding_check_box);
         nameTextView.setText(humanPerson.getName());
         weightTextView.setText(humanPerson.getFormattedWeightInKg());
         dayOfBirthTextView.setText(String.valueOf(humanPerson.getBirthdayString()));
@@ -50,6 +53,8 @@ public class HumanPersonRecyclerAdapter extends RecyclerView.Adapter<HumanPerson
             intent.putExtra("id", humanPerson.getId());
             holder.itemView.getContext().startActivity(intent);
         });
+        pregnantCheckBox.setChecked(humanPerson.isPregnant());
+        breastfeedingCheckBox.setChecked(humanPerson.isBreastfeeding());
     }
 
     @Override

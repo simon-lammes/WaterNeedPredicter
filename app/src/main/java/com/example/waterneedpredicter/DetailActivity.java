@@ -3,6 +3,7 @@ package com.example.waterneedpredicter;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +13,8 @@ public class DetailActivity extends AppCompatActivity {
     private TextView ageTextView;
     private TextView predictedWaterNeedTextView;
     private Button backButton;
+    private CheckBox pregnantCheckBox;
+    private CheckBox breastfeedingCheckBox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +22,7 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
         findAllViews();
         this.backButton.setOnClickListener(view -> finish());
+
     }
 
     @Override
@@ -33,6 +37,8 @@ public class DetailActivity extends AppCompatActivity {
         ageTextView = findViewById(R.id.detail_age_text_view);
         predictedWaterNeedTextView = findViewById(R.id.detail_predicted_water_need_text_view);
         backButton = findViewById(R.id.detail_back_button);
+        pregnantCheckBox = findViewById(R.id.detail_pregnant_check_box);
+        breastfeedingCheckBox = findViewById(R.id.detail_breastfeeding_check_box);
     }
 
     class LoadHumanPersonTask extends AsyncTask<Integer, Void, HumanPerson> {
@@ -49,6 +55,8 @@ public class DetailActivity extends AppCompatActivity {
             nameTextView.setText(humanPerson.getName());
             ageTextView.setText(humanPerson.getAgeRepresentation());
             predictedWaterNeedTextView.setText("" + humanPerson.predictWaterNeedInMl() + " ml");
+            pregnantCheckBox.setChecked(humanPerson.isPregnant());
+            breastfeedingCheckBox.setChecked(humanPerson.isBreastfeeding());
         }
     }
 }
