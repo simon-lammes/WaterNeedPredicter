@@ -12,6 +12,7 @@ import java.util.Calendar;
 @Entity
 public class HumanPerson {
 
+    private static final int MAX_WEIGHT_IN_GRAMS = 200_000;
     @PrimaryKey(autoGenerate = true)
     private int id;
     private String name;
@@ -23,6 +24,9 @@ public class HumanPerson {
     private boolean isBreastfeeding;
 
     HumanPerson(String name, int weightInGrams, int yearBorn, int monthBorn, int dayOfMonthBorn, boolean isPregnant, boolean isBreastfeeding) {
+        if (weightInGrams > MAX_WEIGHT_IN_GRAMS) {
+            throw new OverweightException(weightInGrams, MAX_WEIGHT_IN_GRAMS);
+        }
         this.name = name;
         this.weightInGrams = weightInGrams;
         this.yearBorn = yearBorn;

@@ -13,6 +13,7 @@ import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -110,8 +111,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int weightInGrams = isWeightUnitInKg ? weightInput * 1_000 : weightInput;
         boolean isPregnant = pregnantCheckBox.isChecked();
         boolean isBreastfeeding = breastfeedingCheckBox.isChecked();
-        HumanPerson createdPerson = new HumanPerson(name, weightInGrams, yearBorn, monthBorn, dayOfMonthBorn, isPregnant, isBreastfeeding);
-        new SaveHumanPersonTask().execute(createdPerson);
+        try {
+            HumanPerson createdPerson = new HumanPerson(name, weightInGrams, yearBorn, monthBorn, dayOfMonthBorn, isPregnant, isBreastfeeding);
+            new SaveHumanPersonTask().execute(createdPerson);
+        } catch(OverweightException e) {
+            Toast toast = Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG);
+            toast.show();
+        }
     }
 
     @Override
