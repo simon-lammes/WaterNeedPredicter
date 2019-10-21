@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // If the weight unit is already in grams we have to do nothing, otherwise we have to multiply the kg by one thousand.
         int weightInGrams = isWeightUnitInKg ? weightInput * 1_000 : weightInput;
         boolean isPregnant = pregnantCheckBox.isChecked();
-        boolean isBreastfeeding = pregnantCheckBox.isChecked();
+        boolean isBreastfeeding = breastfeedingCheckBox.isChecked();
         HumanPerson createdPerson = new HumanPerson(name, weightInGrams, yearBorn, monthBorn, dayOfMonthBorn, isPregnant, isBreastfeeding);
         new SaveHumanPersonTask().execute(createdPerson);
     }
