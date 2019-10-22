@@ -8,12 +8,16 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="myCaptionStyle" parent="TextAppearance.AppCompat.Caption">
+    <style name="boldCaption" parent="TextAppearance.AppCompat.Caption">
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="myTextStyle" parent="TextAppearance.AppCompat">
+    <style name="justification" parent="TextAppearance.AppCompat">
         <item name="android:justificationMode">inter_word</item>
+    </style>
+
+    <style name="height" parent="TextAppearance.AppCompat">
+        <item name="android:height">32dp</item>
     </style>
 
 </resources>

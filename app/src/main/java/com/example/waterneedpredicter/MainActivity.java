@@ -117,7 +117,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } catch(OverweightException e) {
             Toast toast = Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG);
             toast.show();
-        }
+        } /* catch(FertilityException e) {
+            Toast toast = Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG);
+            toast.show();
+        } */
     }
 
     @Override

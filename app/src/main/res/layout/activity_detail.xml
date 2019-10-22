@@ -13,7 +13,7 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:text="@string/input_name_of_person" />
 
         <TextView
@@ -21,6 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="end"
+            style="@style/height"
             tools:text="Debora Köhler" />
 
     </TableRow>
@@ -31,7 +32,7 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:text="@string/age" />
 
         <TextView
@@ -39,6 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="end"
+            style="@style/height"
             tools:text="23" />
 
     </TableRow>
@@ -50,7 +52,7 @@
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:text="@string/day_of_birth" />
 
         <TextView
@@ -58,6 +60,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAlignment="textEnd"
+            style="@style/height"
             tools:text="1999-01-05" />
     </TableRow>
 
@@ -67,7 +70,7 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:text="@string/predicted_water_need" />
 
         <TextView
@@ -75,6 +78,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="end"
+            style="@style/height"
             tools:text="4200" />
     </TableRow>
 
@@ -84,7 +88,7 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:text="@string/pregnant" />
 
         <CheckBox
@@ -101,7 +105,7 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:text="@string/breastfeeding" />
 
         <CheckBox

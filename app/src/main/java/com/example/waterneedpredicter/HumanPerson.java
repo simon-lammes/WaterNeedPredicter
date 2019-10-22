@@ -13,6 +13,7 @@ import java.util.Calendar;
 public class HumanPerson {
 
     private static final int MAX_WEIGHT_IN_GRAMS = 200_000;
+    private static final int MIN_FERTILE_AGE = 13;
     @PrimaryKey(autoGenerate = true)
     private int id;
     private String name;
@@ -25,7 +26,7 @@ public class HumanPerson {
 
     HumanPerson(String name, int weightInGrams, int yearBorn, int monthBorn, int dayOfMonthBorn, boolean isPregnant, boolean isBreastfeeding) {
         if (weightInGrams > MAX_WEIGHT_IN_GRAMS) {
-            throw new OverweightException(weightInGrams, MAX_WEIGHT_IN_GRAMS);
+            throw new OverweightException(MAX_WEIGHT_IN_GRAMS, weightInGrams);
         }
         this.name = name;
         this.weightInGrams = weightInGrams;
@@ -34,6 +35,10 @@ public class HumanPerson {
         this.dayOfMonthBorn = dayOfMonthBorn;
         this.isPregnant = isPregnant;
         this.isBreastfeeding = isBreastfeeding;
+        // Does not work at the moment
+        /* if ((calculateTimePassedSinceBirthdayInMonths()/12 < MIN_FERTILE_AGE) && (isPregnant == true)) {
+            throw new FertilityException(calculateTimePassedSinceBirthdayInMonths()/12, MIN_FERTILE_AGE);
+        } */
     }
 
     int getId() {

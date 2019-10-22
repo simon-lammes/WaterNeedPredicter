@@ -26,7 +26,7 @@
     <!-- Subheader -->
     <TextView
         android:id="@+id/info_subheader1_textView"
-        style="@style/myCaptionStyle"
+        style="@style/boldCaption"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -36,7 +36,7 @@
     <!-- Text -->
     <TextView
         android:id="@+id/info_help1_textView"
-        style="@style/myTextStyle"
+        style="@style/justification"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/formula" />
@@ -50,7 +50,7 @@
 
     <TextView
         android:id="@+id/info_subheader2_textView"
-        style="@style/myCaptionStyle"
+        style="@style/boldCaption"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -59,14 +59,14 @@
 
     <TextView
         android:id="@+id/info_help2_textView"
-        style="@style/myTextStyle"
+        style="@style/justification"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/inventor" />
 
     <TextView
         android:id="@+id/info_subheader3_textView"
-        style="@style/myCaptionStyle"
+        style="@style/boldCaption"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -75,14 +75,14 @@
 
     <TextView
         android:id="@+id/info_help3_textView"
-        style="@style/myTextStyle"
+        style="@style/justification"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/spectrum" />
 
     <TextView
         android:id="@+id/info_subheader4_textView"
-        style="@style/myCaptionStyle"
+        style="@style/boldCaption"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -92,7 +92,7 @@
 
     <TextView
         android:id="@+id/info_help4_textView"
-        style="@style/myTextStyle"
+        style="@style/justification"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
