@@ -48,6 +48,24 @@
         android:layout_height="match_parent" >
 
         <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/day_of_birth" />
+
+        <TextView
+            android:id="@+id/detail_day_of_birth_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="textEnd"
+            tools:text="1999-01-05" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/predicted_water_need" />
@@ -56,13 +74,13 @@
             android:id="@+id/detail_predicted_water_need_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="4200"
-            android:gravity="end"/>
+            android:gravity="end"
+            tools:text="4200" />
     </TableRow>
 
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <TextView
             android:layout_width="wrap_content"
@@ -74,7 +92,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:enabled="false"/>
+            android:enabled="false" />
     </TableRow>
 
     <TableRow

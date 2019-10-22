@@ -42,6 +42,7 @@ public class HumanPersonRecyclerAdapter extends RecyclerView.Adapter<HumanPerson
         Button detailButton = holder.itemView.findViewById(R.id.human_person_detail_button);
         CheckBox pregnantCheckBox = holder.itemView.findViewById(R.id.human_person_pregnant_check_box);
         CheckBox breastfeedingCheckBox = holder.itemView.findViewById(R.id.human_person_breastfeeding_check_box);
+        TextView ageTextView = holder.itemView.findViewById(R.id.human_person_age_text_view);
         nameTextView.setText(humanPerson.getName());
         weightTextView.setText(humanPerson.getFormattedWeightInKg());
         dayOfBirthTextView.setText(String.valueOf(humanPerson.getBirthdayString()));
@@ -55,6 +56,7 @@ public class HumanPersonRecyclerAdapter extends RecyclerView.Adapter<HumanPerson
         });
         pregnantCheckBox.setChecked(humanPerson.isPregnant());
         breastfeedingCheckBox.setChecked(humanPerson.isBreastfeeding());
+        ageTextView.setText(humanPerson.getAgeRepresentation());
     }
 
     @Override

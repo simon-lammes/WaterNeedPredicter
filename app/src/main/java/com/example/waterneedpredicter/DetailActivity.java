@@ -15,6 +15,7 @@ public class DetailActivity extends AppCompatActivity {
     private Button backButton;
     private CheckBox pregnantCheckBox;
     private CheckBox breastfeedingCheckBox;
+    private TextView dayOfBirth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +40,7 @@ public class DetailActivity extends AppCompatActivity {
         backButton = findViewById(R.id.detail_back_button);
         pregnantCheckBox = findViewById(R.id.detail_pregnant_check_box);
         breastfeedingCheckBox = findViewById(R.id.detail_breastfeeding_check_box);
+        dayOfBirth = findViewById(R.id.detail_day_of_birth_view);
     }
 
     class LoadHumanPersonTask extends AsyncTask<Integer, Void, HumanPerson> {
@@ -57,6 +59,7 @@ public class DetailActivity extends AppCompatActivity {
             predictedWaterNeedTextView.setText("" + humanPerson.predictWaterNeedInMl() + " ml");
             pregnantCheckBox.setChecked(humanPerson.isPregnant());
             breastfeedingCheckBox.setChecked(humanPerson.isBreastfeeding());
+            dayOfBirth.setText(humanPerson.getBirthdayString());
         }
     }
 }
