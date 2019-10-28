@@ -22,8 +22,8 @@
         (see article <a href="http://bit.ly/waterneedformula">Water Need Formula</a>), there are no indicators about who
                             actually invented it.</string>
     <string name="subheader3">In which spectrum can the input values be?</string>
-    <string name="spectrum">In order for the app to work properly, we have set a couple of value limits. The maximum
-        weight value is 200 kg and the minimum age value of a pregnant person is 13 years old.</string>
+    <string name="spectrum">In order for the app to work properly, we have set a couple of value limits. For example, the maximum
+        weight value is 200 kg.</string>
     <string name="subheader4">What does the model assert? / How can the result be interpreted?</string>
     <string name="result">You can use this formula to be informed about your personal
                             recommended water supply. Please note: the results predict a general amount
